@@ -24,7 +24,9 @@ char InitializeI2C()
     /*
     Put the platform specific code over here
     */
-    return 1;
+   Wire.begin();
+
+   return 1;
 }
 
 /**
@@ -46,7 +48,9 @@ char WriteI2C(uint8_t address, uint8_t data)
     /*
     Put the platform specific code over here
     */
-    return 1;
+    Wire.beginTransmission(address);
+    Wire.write(data);
+	return !Wire.endTransmission(false);
 }
 
 /**
@@ -66,7 +70,9 @@ char WriteI2C_mutli(uint8_t address, uint8_t * data, uint8_t num)
     /*
     Put the platform specific code over here
     */
-    return 1;
+    Wire.beginTransmission(address);
+    for(uint8_t i = 0; i<num; i++) { Wire.write( *(data+i) ); }
+	return !Wire.endTransmission(true);
 }
 
 /**
@@ -86,6 +92,13 @@ char ReadI2C_multi(uint8_t address, uint8_t * data, uint8_t num)
     /*
     Put the platform specific code over here
     */
+    if( Wire.requestFrom(address, num) != num ) return 0;    // request num bytes from slave device #address
+
+    for(uint8_t i=0; i<num; i++)
+    {
+        *(data + i) = Wire.read();
+    }
+
     return 1;
 }
 
@@ -103,6 +116,7 @@ void DelayMS(unsigned int dl)
     /*
     Put the platform specific code over here
     */
+   delay(dl);
 }
 
 /**
@@ -119,4 +133,5 @@ void DelayUS(unsigned int dl)
     /*
     Put the platform specific code over here
     */
+   delayMicroseconds(dl);
 }

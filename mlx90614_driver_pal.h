@@ -10,6 +10,9 @@
 #ifndef MLX90614_DRIVER_PAL_H
 #define MLX90614_DRIVER_PAL_H
 
+#include <Arduino.h>
+#include <Wire.h>
+
 #include "mlx90614_driver_common.h"
 
 char InitializeI2C();
