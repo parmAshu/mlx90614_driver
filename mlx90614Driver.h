@@ -1,6 +1,6 @@
 /**
  * @author - Ashutosh Singh Parmar
- * @file - mlx90614_driver.h
+ * @file - mlx90614Driver.h
  * @brief - This file contains declarations for main driver APIs for MLX90614 temperature sensor.
  * 
  * ************************************************************************************

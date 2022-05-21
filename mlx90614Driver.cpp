@@ -1,13 +1,13 @@
 /**
  * @author - Ashutosh Singh Parmar
- * @file - mlx90614_driver.c
+ * @file - mlx90614Driver.c
  * @brief - This file contains main driver APIs for MLX90614 temperature sensor.
  * 
  * ************************************************************************************
  * ************************************************************************************
 */
 
-#include "mlx90614_driver.h"
+#include "mlx90614Driver.h"
 
 static uint8_t device_addr;
 
